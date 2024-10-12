@@ -117,25 +117,23 @@ function App() {
           </button>
         </form>
         {result && (
-          <div className="p-4 bg-brown-50 rounded-md mb-4">
-            <h2 className="text-lg font-semibold text-brown-800 mb-4">
-              Resultados:
-            </h2>
-
-            {/* Contenedor para permitir desplazamiento horizontal en móviles */}
-            <div className="overflow-x-auto">
-              <table className="w-full table-auto border-collapse border border-gray-300 min-w-[600px]">
+          <div className="mt-6">
+            <div className="p-4 bg-brown-50 rounded-md mb-4">
+              <h2 className="text-lg font-semibold text-brown-800 mb-4">
+                Resultados:
+              </h2>
+              <table className="w-full table-auto border-collapse border border-gray-300">
                 <tbody>
                   <tr className="bg-white border-b">
-                    <th className="text-left px-4 py-2 text-sm text-gray-600 whitespace-nowrap">
-                      Peso al trillado
+                    <th className="text-left px-4 py-2 text-sm text-gray-600">
+                      Peso al trillar
                     </th>
                     <td className="px-4 py-2 text-sm text-gray-600">
                       {result.hulledWeight} g
                     </td>
                   </tr>
                   <tr className="bg-gray-50 border-b">
-                    <th className="text-left px-4 py-2 text-sm text-gray-600 whitespace-nowrap">
+                    <th className="text-left px-4 py-2 text-sm text-gray-600">
                       Peso al moler
                     </th>
                     <td className="px-4 py-2 text-sm text-gray-600">
@@ -143,23 +141,23 @@ function App() {
                     </td>
                   </tr>
                   <tr className="bg-white border-b">
-                    <th className="text-left px-4 py-2 text-sm text-yellow-600 whitespace-nowrap">
+                    <th className="text-left px-4 py-2 text-sm text-yellow-600">
                       Costo compra total
                     </th>
-                    <td className="px-4 py-2 text-sm text-yellow-600">
+                    <td className="px-4 py-2 text-sm font-semibold text-yellow-600">
                       ${result.totalCost} COP
                     </td>
                   </tr>
                   <tr className="bg-gray-50 border-b">
-                    <th className="text-left px-4 py-2 text-sm text-gray-600 whitespace-nowrap">
+                    <th className="text-left px-4 py-2 text-sm text-blue-600">
                       Valor de venta
                     </th>
-                    <td className="px-4 py-2 text-sm text-gray-600">
+                    <td className="px-4 py-2 text-sm font-semibold text-blue-600">
                       ${result.finalValue} COP
                     </td>
                   </tr>
                   <tr className="bg-white">
-                    <th className="text-left px-4 py-2 text-sm font-bold text-green-700 whitespace-nowrap">
+                    <th className="text-left px-4 py-2 text-sm font-bold text-green-700">
                       Ganancia
                     </th>
                     <td className="px-4 py-2 text-sm font-bold text-green-700">
@@ -169,6 +167,13 @@ function App() {
                 </tbody>
               </table>
             </div>
+            <button
+              onClick={printPDF}
+              className="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out"
+            >
+              <Printer className="w-5 h-5 mr-2" />
+              Imprimir PDF
+            </button>
           </div>
         )}
       </div>
